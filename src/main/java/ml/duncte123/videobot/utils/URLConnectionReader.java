@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * @author duncan (duncte123)
+ */
 public class URLConnectionReader {
 
     /**

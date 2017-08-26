@@ -2,15 +2,11 @@ package ml.duncte123.videobot.utils;
 
 import ml.duncte123.videobot.Video;
 import ml.duncte123.videobot.Videobot;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class YoutubeUtil {
 
-    private static String API_KEY = "";
-    private static String CHANNEL_ID = "UColI-lvoN08jXBfc1EqDR8g";
-
-    public static String API_LINK = "https://www.googleapis.com/youtube/v3/search?key=" + API_KEY + "&channelId=" + CHANNEL_ID + "&part=snippet,id&order=date&maxResults=1";
+    public static String API_LINK = "https://www.googleapis.com/youtube/v3/search?key=" + Videobot.YOUTUBE_API_KEY + "&channelId=" + Videobot.YOUTUBE_CHANNEL_ID + "&part=snippet,id&order=date&maxResults=1";
 
 
     public static String getJSONData() {
@@ -36,6 +32,6 @@ public class YoutubeUtil {
     }
 
     public static boolean checkNewVideo(Video v) {
-        return !Videobot.latestVideo.equals(v.getID());
+        return !Videobot.LATEST_VIDEO_ID.equals(v.getID());
     }
 }

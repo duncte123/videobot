@@ -17,11 +17,11 @@ public class Video {
     public String getID() {
         return VIDEO_ID;
     }
-    public String  getTItle() {
+    public String getTitle() {
         return VIDEO_TITLE;
     }
 
-    public String getDesdciption() {
+    public String getDescription() {
         return VIDEO_DESCRIPTION;
     }
     public String getThumbUrl() {

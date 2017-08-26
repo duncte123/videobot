@@ -9,8 +9,8 @@ import java.awt.*;
 public class EmbedUtil {
     public static MessageEmbed generateEmbed(Video v) {
         String vidId = v.getID();
-        String vidTitle = v.getTItle();
-        String vidDes = v.getDesdciption();
+        String vidTitle = v.getTitle();
+        String vidDes = v.getDescription();
         String vidThumb = v.getThumbUrl();
 
         EmbedBuilder eb = new EmbedBuilder()

@@ -22,9 +22,9 @@ public class Scheduler  {
                     Video v = YoutubeUtil.getVideo();
                     if (YoutubeUtil.checkNewVideo(v)) {
                         Message m = new MessageBuilder().append("Duncte uploaded a new video").setEmbed(EmbedUtil.generateEmbed(v)).build();
-                        Videobot.dhgGuild.getTextChannelsByName(Videobot.AD_CHANNEL_NAME, true)
+                        Videobot.GUILD_TO_MSG.getTextChannelsByName(Videobot.AD_CHANNEL_NAME, true)
                                 .get(0).sendMessage(m).queue();
-                        Videobot.latestVideo = v.getID();
+                        Videobot.LATEST_VIDEO_ID = v.getID();
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace(); // or loggger would be better
