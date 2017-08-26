@@ -24,6 +24,7 @@ public class Scheduler  {
                         Message m = new MessageBuilder().append("Duncte uploaded a new video").setEmbed(EmbedUtil.generateEmbed(v)).build();
                         Videobot.dhgGuild.getTextChannelsByName(Videobot.AD_CHANNEL_NAME, true)
                                 .get(0).sendMessage(m).queue();
+                        Videobot.latestVideo = v.getID();
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace(); // or loggger would be better
