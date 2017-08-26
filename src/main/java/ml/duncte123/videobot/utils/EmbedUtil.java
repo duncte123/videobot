@@ -14,7 +14,7 @@ public class EmbedUtil {
         String vidThumb = v.getThumbUrl();
 
         EmbedBuilder eb = new EmbedBuilder()
-                .setTitle(vidTitle, "https://youtube.oom/watch?v=" + vidId)
+                .setTitle(vidTitle, "https://youtube.com/watch?v=" + vidId)
                 .setColor(Color.RED)
                 .setDescription(vidDes)
                 .setThumbnail(vidThumb);
