@@ -16,6 +16,8 @@ repositories {
     jcenter()
 }
 
+libsDirName = '../'
+
 dependencies {
     compile 'net.dv8tion:JDA:3.2.0_251'
     compile 'org.apache.commons:commons-lang3:3.1'

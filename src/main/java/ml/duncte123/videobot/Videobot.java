@@ -18,7 +18,7 @@ public class Videobot {
     public static String LATEST_VIDEO_ID = "";
     public static Guild GUILD_TO_MSG = null;
     private static String GUILD_ID = "329962158471512075";
-    public static String AD_CHANNEL_NAME = "adversitement";
+    public static String AD_CHANNEL_NAME = "advertisement";
     private static String BOT_TOKEN = "";
     public static String YOUTUBE_API_KEY = "";
     public static String YOUTUBE_CHANNEL_ID = "UColI-lvoN08jXBfc1EqDR8g";
