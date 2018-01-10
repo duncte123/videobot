@@ -8,16 +8,11 @@ import java.awt.*;
 
 public class EmbedUtil {
     public static MessageEmbed generateEmbed(Video v) {
-        String vidId = v.getID();
-        String vidTitle = v.getTitle();
-        String vidDes = v.getDescription();
-        String vidThumb = v.getThumbUrl();
-
-        EmbedBuilder eb = new EmbedBuilder()
-                .setTitle(vidTitle, "https://youtube.com/watch?v=" + vidId)
+        return new EmbedBuilder()
+                .setTitle(v.getTitle(), "https://youtube.com/watch?v=" + v.getID())
                 .setColor(Color.RED)
-                .setDescription(vidDes)
-                .setThumbnail(vidThumb);
-        return eb.build();
+                .setDescription(v.getDescription())
+                .setThumbnail(v.getThumbUrl())
+                .build();
     }
 }

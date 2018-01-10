@@ -3,14 +3,13 @@ package ml.duncte123.videobot;
 import ml.duncte123.videobot.utils.Scheduler;
 import ml.duncte123.videobot.utils.YoutubeUtil;
 import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.events.ReadyEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class Videobot {
-
-    static JDA jda;
+public class Videobot extends ListenerAdapter {
 
     /*
      * Start settings
@@ -32,14 +31,16 @@ public class Videobot {
         //Start the timer
         new Scheduler();
         //bot stuffz
-        jda = new JDABuilder(AccountType.BOT)
+        new JDABuilder(AccountType.BOT)
                 .setAudioEnabled(false)
                 .setBulkDeleteSplittingEnabled(false)
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .setToken(BOT_TOKEN)
                 .buildBlocking();
-        jda.setAutoReconnect(true);
-        GUILD_TO_MSG = jda.getGuildById(GUILD_ID);
     }
 
+    @Override
+    public void onReady(ReadyEvent event) {
+        GUILD_TO_MSG = event.getJDA().getGuildById(GUILD_ID);
+    }
 }

@@ -6,10 +6,10 @@ import org.json.JSONObject;
 
 public class YoutubeUtil {
 
-    public static String API_LINK = "https://www.googleapis.com/youtube/v3/search?key=" + Videobot.YOUTUBE_API_KEY + "&channelId=" + Videobot.YOUTUBE_CHANNEL_ID + "&part=snippet,id&order=date&maxResults=1";
+    private static String API_LINK = "https://www.googleapis.com/youtube/v3/search?key=" + Videobot.YOUTUBE_API_KEY + "&channelId=" + Videobot.YOUTUBE_CHANNEL_ID + "&part=snippet,id&order=date&maxResults=1";
 
 
-    public static String getJSONData() {
+    private static String getJSONData() {
         try {
             return URLConnectionReader.getText(API_LINK);
         }
@@ -19,16 +19,13 @@ public class YoutubeUtil {
     }
 
     public static Video getVideo() {
-        String json = getJSONData();
-        JSONObject jsonObject = new JSONObject(json);
-        Object jsonArray = jsonObject.getJSONArray("items").get(0);
-        JSONObject videoData = new JSONObject(String.valueOf(jsonArray));
+        JSONObject videoData  = new JSONObject(getJSONData()).getJSONArray("items").getJSONObject(0);
 
         String video_id = videoData.getJSONObject("id").getString("videoId");
         String video_title = videoData.getJSONObject("snippet").getString("title");
-        String video_desscription = videoData.getJSONObject("snippet").getString("description");
+        String video_description = videoData.getJSONObject("snippet").getString("description");
 
-        return new Video(video_id, video_title, video_desscription);
+        return new Video(video_id, video_title, video_description);
     }
 
     public static boolean checkNewVideo(Video v) {
